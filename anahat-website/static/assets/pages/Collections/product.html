@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Product Name] – Handcrafted Fashion & Decor | Anahat by Kanwal</title>
+<meta name="description" content="Buy [Product Name] online. Beautifully crafted with fabric paint and embellishments. Unique handcrafted design by Anahat by Kanwal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="/anahat-website/static/style.css" />
+</head>
+<style>
+    /* ==========================================================================
+   ANAHAT BY KANWAL - GLOBAL STYLESHEET
+   ========================================================================== */
+:root {
+  --sage: #758b76;
+  --sage-dark: #526b58;
+  --sage-pale: #e4e9df;
+  --cream: #f8f5ed;
+  --paper: #fffdf8;
+  --ink: #252820;
+  --muted: #6c6e64;
+  --rose: #d98b76;
+  --line: #deded1;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', Arial, sans-serif;
+  --shadow: 0 12px 35px rgba(47, 57, 43, 0.09);
+  --radius: 8px;
+  --radius-md: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Product Grid & Cards Styling (Fixes the vertical image display issue) */
+.product-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  width: 100% !important;
+}
+
+.product-card {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(67, 76, 61, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.product-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5 !important;
+  max-height: 300px !important;
+  overflow: hidden;
+  background: #e8e1d6;
+  cursor: pointer;
+}
+
+.product-image-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.05);
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--sage);
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.product-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-category {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--sage-dark);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-title {
+  font: 500 15px/1.3 var(--serif);
+  margin-bottom: 6px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.product-price {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: auto;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.product-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-card {
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-add-bag {
+  background: transparent;
+  color: var(--sage-dark);
+  border: 1px solid var(--sage);
+}
+
+.btn-add-bag:hover {
+  background: var(--sage-pale);
+}
+
+.btn-buy-now {
+  background: var(--ink);
+  color: #ffffff;
+  border: 1px solid var(--ink);
+}
+
+.btn-buy-now:hover {
+  background: var(--sage-dark);
+}
+
+
+
+#productDetailViewApp {
+  margin-top: 40px !important;
+  scroll-margin-top: 100px; /* Jab bhi scroll ho toh header ke neeche theek jagah par aaye */
+}
+
+
+
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    z-index: 100;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 30px);
+    padding: 12px 24px;
+    background: #2e3e31;
+    color: white;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, transform .3s;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+</style>
+<body>
+
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Dynamic Product Detail Controller App Mount -->
+  <div id="productDetailViewApp"></div>
+
+
+ <!-- Toast Notification System -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global Component Loader & Global Cart State -->
+  <script src="/anahat-website/static/global.js"></script>
+
+  <!-- Central Catalog & Routing Script -->
+  <script src="/anahat-website/static/script.js"></script>
+</body>
+</html>
